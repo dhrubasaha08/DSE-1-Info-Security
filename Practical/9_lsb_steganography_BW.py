@@ -4,7 +4,10 @@ from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 
-img = np.asarray(Image.open('BW.jpg'))
+img0 = Image.open('BW.png')
+img1 = img0.convert('L')
+img = np.asarray(img1)
+
 W,H = img.shape
 
 message = input()
@@ -21,4 +24,4 @@ for idx, bit in enumerate(message_bits):
 encoded_img = img.reshape((W,H))
 
 form_img = Image.fromarray(encoded_img)
-form_img.save("BWO.jpg")
+form_img.save("BWO.png")
